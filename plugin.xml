@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="4.6"?>
+<plugin>
+
+   <extension point="org.eclipse.ui.handlers">
+   	<handler
+   		commandId="com.sushi.plugin.run.commands.sampleCommand"
+   		class="com.sushi.plugin.handlers.SampleHandler">
+   	</handler>
+   </extension>
+   
+   <extension point="org.eclipse.ui.menus">
+   <menuContribution
+   		locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+   	<command
+   		commandId="com.sushi.plugin.run.commands.sampleCommand"
+   		label="Generate test cases with SUSHI"
+   		mnemonic="S"
+   		id="com.sushi.plugin.run.commands.sampleCommand">
+   	<visibleWhen>
+   		<with
+   			variable="activeMenuSelection">
+   		<iterate
+   			ifEmpty="false">
+   		<adapt
+   			type="org.eclipse.core.resources.IResource">
+   		<test
+   			property="org.eclipse.core.resources.name"
+   			value="*.java">
+   		</test>
+   		</adapt>
+   		</iterate>
+   		</with>
+   		</visibleWhen>
+   		</command>
+   		</menuContribution>
+   		</extension>
+   		
+   	<extension point="org.eclipse.ui.preferencePages">
+   	
+   		<page name="SUSHI"
+   			class="com.sushi.plugin.preference.ui.SushiPreferencePage"
+   			id="com.sushi.plugin.ui.preference.page"/>
+   			<initializer
+   				class="com.sushi.plugin.preference.ui.PreferenceInitializer">
+   			</initializer>
+   			
+   			
+   		<!--<page name="Global Settings"
+   			class="com.sushi.plugin.preference.ui.GlobalSettingsPage"
+   			id="com.sushi.plugin.ui.preference.page"
+   			category="com.sushi.plugin.ui.preference.page"/>
+   			
+   			
+   		<page name="Local Settings"
+   			class="com.sushi.plugin.preference.ui.LocalSettingsPage"
+   			id="com.sushi.plugin.ui.preference.page"
+   			category="com.sushi.plugin.ui.preference.page"/> -->
+   			
+    </extension>   			
+
+</plugin>

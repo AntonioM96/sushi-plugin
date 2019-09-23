@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Plugin
+Bundle-SymbolicName: com.sushi.plugin;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.sushi.plugin.Activator
+Bundle-Vendor: SUSHI
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources;bundle-version="3.11.1",
+ org.eclipse.jdt.core;bundle-version="3.12.3",
+ org.eclipse.jdt.launching;bundle-version="3.8.101"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.jface.text,
+ org.eclipse.ui
